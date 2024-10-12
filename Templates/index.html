@@ -4,6 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #3a6186, #89253e);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #ff6347;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #e55347;
+        }
+        p {
+            margin: 15px 0;
+        }
+        h2 {
+            margin-top: 20px;
+            font-size: 2rem;
+        }
+        .weather-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .weather-info img {
+            display: block;
+            margin: 10px auto;
+        }
+    </style>
 </head>
 <body>
     <h1>Weather App</h1>
@@ -17,12 +82,14 @@
     {% endif %}
 
     {% if temp %}
-    <h2>Weather in {{ city_name }}</h2>
-    <p>Temperature: {{ temp }}°C</p>
-    <p>Description: {{ weather }}</p>
-    <p>Min Temperature: {{ min_temp }}°C</p>
-    <p>Max Temperature: {{ max_temp }}°C</p>
-    <img src="http://openweathermap.org/img/w/{{ icon }}.png" alt="Weather Icon">
+    <div class="weather-info">
+        <h2>Weather in {{ city_name }}</h2>
+        <p>Temperature: {{ temp }}°C</p>
+        <p>Description: {{ weather }}</p>
+        <p>Min Temperature: {{ min_temp }}°C</p>
+        <p>Max Temperature: {{ max_temp }}°C</p>
+        <img src="http://openweathermap.org/img/w/{{ icon }}.png" alt="Weather Icon">
+    </div>
     {% endif %}
 </body>
 </html>
